@@ -1,0 +1,60 @@
+:root{
+    --green: #48A411
+}
+
+.login {
+  align-items: center;
+  width: 360px;
+  height: 320px;
+  margin: 0 auto;
+  margin-top: 10%;
+  background-color: wheat;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.login h2 {
+  text-align: center;
+}
+
+.login form {
+  width: 300px;
+  margin-left: 20px;
+}
+
+.login form label {
+  display: flex;
+  margin-top: 15px;
+  font-size: 18px;
+  align-items: center;
+}
+
+.login form input {
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+}
+
+.login form button {
+  width: 320px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #077732;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.login p{
+  text-align: center;
+  padding-top: 20px;
+  font-size: 15px;
+}
+
+.login p Link {
+  color: #077732;
+}
