@@ -51,10 +51,11 @@
 
 .login p{
   text-align: center;
-  padding-top: 20px;
+  margin-top: 10px;
   font-size: 15px;
+  color: white;
 }
 
-.login p Link {
-  color: #077732;
+.condition p{
+  color: black;
 }
