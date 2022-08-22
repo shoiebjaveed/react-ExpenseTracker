@@ -1,21 +1,41 @@
 import { Link } from 'react-router-dom';
 import classes from './Header.module.css';
-import { BsFillPersonFill, BsExclamationTriangle } from "react-icons/bs";
+import { BsPersonLinesFill, BsExclamationTriangle } from "react-icons/bs";
+import { AiOutlineLogout } from "react-icons/ai";
+import { useContext } from 'react';
+import AuthContext from '../../store/auth-context';
+
 
 const Header = () => {
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isLoggedIn;
+
+  const logoutHandler = () => {
+    authCtx.logout();
+  }
 
   return (
     <header className={classes.header}>
-      <Link to='/'><h1>Expense Tracker</h1></Link>
-      <div className={classes.profile}>
-        <Link to='/profile'>
-          <h3><BsFillPersonFill /></h3>
+      <div className={classes.logout}>
+        {isLoggedIn && <h3 onClick={logoutHandler}><AiOutlineLogout /></h3>}
+      </div>
+      <div className={classes.title}>
+        <Link to='/'>
+        <h3>Expense Tracker</h3>
         </Link>
       </div>
+      <div className={classes.profile}>
+        {isLoggedIn &&
+          <Link to='/profile'>
+            <h3><BsPersonLinesFill /></h3>
+          </Link>}
+      </div>
       <div className={classes.complete}>
-        <Link to='/complete'>
-          <h3><BsExclamationTriangle /></h3>
-        </Link>
+        {isLoggedIn &&
+          <Link to='/complete'>
+            <h3><BsExclamationTriangle /></h3>
+          </Link>
+        }
       </div>
     </header>
   )

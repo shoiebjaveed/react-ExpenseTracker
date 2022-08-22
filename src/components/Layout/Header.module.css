@@ -14,11 +14,16 @@
     z-index: 10;
   }
 
-.header h1 {
-  border: none;
-  cursor: pointer;
-  color: rgb(255, 255, 255);
+  .title h3{
+    position: absolute;
+    justify-content: center;
+    left: 36%;
+    margin-top: -22px;
+    color: white;
+    font-family: Copperplate, Papyrus, fantasy;
+    font-size: 35px;
 }
+  
 
 .profile {
   position: absolute;
@@ -54,3 +59,19 @@
 .complete h3:hover {
   color: red;
 }
+
+.logout {
+  position: absolute;
+  left: 1%;
+}
+
+.logout h3 {
+  text-align: center;
+  font-size: 30px;  
+  color: rgb(153, 14, 14);  
+}
+
+.logout h3:hover {
+  color: red;
+}
+

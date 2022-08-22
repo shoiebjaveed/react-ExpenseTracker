@@ -39,7 +39,38 @@ const Profile = () => {
         }))//if connection failed
 
     const emailVerification = () => {
-        console.log('working')
+        console.log('working');
+        fetch('https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyAhbVAuWXkewbZNP1a1KknskpNGB_F8deU',
+        {
+            method: 'POST',
+            body: JSON.stringify({
+                requestType: "VERIFY_EMAIL",
+                idToken: authCtx.token
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    ).then(res => {
+        if (res.ok) {
+            return res.json()
+        } else {
+            return res.json().then(data => {
+                let error = 'unable to get user data'
+                if (data && data.error && data.error.message) {
+                    error = data.error.message;
+                }
+                alert(error)
+                throw new Error(error)
+            })
+        }
+    }).then(data => {
+        alert(`Verification mail has been sent to ${data.email} Open your mail inbox and click verify`)
+       //console.log(`email sent to ${data}`)
+    })/*if sucessfull connection*/
+        .catch((err => {
+            alert(err.message)
+        }))//if connection failed
     }
         
 
