@@ -19,3 +19,38 @@
   cursor: pointer;
   color: rgb(255, 255, 255);
 }
+
+.profile {
+  position: absolute;
+  right: 10%;
+}
+
+.profile a {
+  text-decoration: none;
+}
+
+.profile h3 {
+  font-size: 40px;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+}
+
+.profile h3:hover {
+  color: rgb(173, 165, 165);
+}
+
+.complete {
+  position: absolute;
+  right: 15%;
+}
+
+.complete h3 {
+  text-align: center;
+  font-size: 30px;  
+  color: rgb(153, 14, 14);  
+}
+
+.complete h3:hover {
+  color: red;
+}

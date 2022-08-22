@@ -1,9 +1,12 @@
-import { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useContext, useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import AuthContext from '../../store/auth-context';
 import classes from './Login.module.css'
 
 const Login = () => {
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
+    const authCtx = useContext(AuthContext);
+    const history = useNavigate()
     const email = useRef();
     const password = useRef();
 
@@ -40,7 +43,9 @@ const Login = () => {
           })
         }
       }).then(data => {
-        console.log(data)
+        authCtx.login(data.idToken, data.email);
+        history('/');
+
       })/*if sucessfull connection*/
       .catch((err => {
         alert(err.message)

@@ -1,10 +1,13 @@
 import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import Header from "./components/Layout/Header";
+import Profile from "./components/Layout/user/Profile";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from './pages/signup/Signup';
+import CompleteProfile from "./components/Layout/user/CompleteProfile";
 
 function App() {
+
   return (
     <BrowserRouter>
     <Header />
@@ -12,6 +15,8 @@ function App() {
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
+      <Route path='/profile' element={<Profile />} />
+      <Route path='/complete' element={<CompleteProfile />} />
     </Routes>
     </BrowserRouter>
     

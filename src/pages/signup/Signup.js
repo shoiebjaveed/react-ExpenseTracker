@@ -1,8 +1,9 @@
 import { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import classes from './Signup.module.css'
 
 const Signup = () => {
+  const history = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const email = useRef();
   const password = useRef();
@@ -33,6 +34,7 @@ const Signup = () => {
       ).then(res => {
         setIsLoading(false)
         if (res.ok) {
+          history('/login');
           // ...
         } else {
           return res.json().then(data => {
