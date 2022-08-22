@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../../store/auth-context';
 import classes from './CompleteProfile.module.css';
 
@@ -8,12 +9,15 @@ const CompleteProfile = () => {
     const username = useRef();
     const imageurl = useRef();
     const [isLoading, setIsLoading] = useState(false);
+    const history = useNavigate()
 
     const submitHandler = (event) => {
         event.preventDefault();
         const enterUsername = username.current.value;
         const enterImageurl = imageurl.current.value;
+        
         //Making a post request:
+        setIsLoading(true);
         fetch('https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyAhbVAuWXkewbZNP1a1KknskpNGB_F8deU',
             {
                 method: 'POST',
@@ -43,6 +47,7 @@ const CompleteProfile = () => {
             }
           }).then(data => {
             console.log(data);
+            history('/profile');
           })/*if sucessfull connection*/
           .catch((err => {
             alert(err.message)

@@ -43,7 +43,8 @@ const Login = () => {
           })
         }
       }).then(data => {
-        authCtx.login(data.idToken, data.email);
+        console.log(data)
+        authCtx.login(data.idToken, data.email, data.displayName, data.profilePicture);
         history('/');
 
       })/*if sucessfull connection*/
