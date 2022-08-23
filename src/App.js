@@ -5,11 +5,13 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from './pages/signup/Signup';
 import CompleteProfile from "./components/Layout/user/CompleteProfile";
+import { ExpenseContextProvider } from "./store/expense-context";
 
 function App() {
 
   return (
-    <BrowserRouter>
+    <ExpenseContextProvider>
+      <BrowserRouter>
     <Header />
     <Routes>
       <Route path='/' element={<Home />} />
@@ -19,7 +21,7 @@ function App() {
       <Route path='/complete' element={<CompleteProfile />} />
     </Routes>
     </BrowserRouter>
-    
+    </ExpenseContextProvider>    
   );
 }
 

@@ -1,0 +1,14 @@
+
+.list form input {
+    font: inherit;
+    padding:5px 0.9rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%;
+}
+
+.list button {
+
+    margin-top: 60%;
+}
