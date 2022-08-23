@@ -53,6 +53,43 @@ const Login = () => {
       }))//if connection failed
     }
 
+    const forgotPasswordHandler = () => {
+      const Email = email.current.value;
+      fetch('https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyAhbVAuWXkewbZNP1a1KknskpNGB_F8deU',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            email: Email,
+            requestType: "PASSWORD_RESET"
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      ).then(res => {
+        setIsLoading(false)
+        if (res.ok) {
+          return res.json()
+        } else {
+          return res.json().then(data => {
+            let error = 'connection failed!...'
+            if (data && data.error && data.error.message) {
+              error = data.error.message;
+            }
+            alert(error)
+            throw new Error(error)
+          })
+        }
+      }).then(data => {
+        alert(`Password reset link has been sent to ${data.email}`)
+
+      })/*if sucessfull connection*/
+      .catch((err => {
+        alert(err.message)
+      }))//if connection failed
+      
+    }
+
   return (
   <>
    <div className={classes.login}>
@@ -62,6 +99,7 @@ const Login = () => {
         <input type='email' placeholder='Email' required ref={email}/>
         <label>Password</label>
         <input type='password' placeholder='password' required ref={password}/>
+        <h5 onClick={forgotPasswordHandler}>forgot password?</h5>
         <button type='submit'>
             {!isLoading && <p>submit</p>}
             {isLoading && <p>please wait.....</p>}

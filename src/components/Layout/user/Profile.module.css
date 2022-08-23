@@ -27,8 +27,16 @@
     cursor: pointer;
 }
 
-.profile h3:hover {
-    color: rgb(173, 165, 165);
+.profile h5 {
+    position: absolute;
+    font-size: 12px;
+    margin-top: 0px;
+    color: black;
+    cursor: pointer;
+}
+
+.profile h5:hover {
+    color: red;
 }
 
 .profile form {
@@ -52,5 +60,9 @@
     cursor: pointer;
     margin-top: -1px;
     color: red;
+}
+
+.profile form p:hover {
+    color: rgb(121, 0, 0);
 }
 

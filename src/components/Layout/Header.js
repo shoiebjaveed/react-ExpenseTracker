@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import classes from './Header.module.css';
-import { BsPersonLinesFill, BsExclamationTriangle } from "react-icons/bs";
+import { BsPersonLinesFill } from "react-icons/bs";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useContext } from 'react';
 import AuthContext from '../../store/auth-context';
@@ -30,13 +30,7 @@ const Header = () => {
             <h3><BsPersonLinesFill /></h3>
           </Link>}
       </div>
-      <div className={classes.complete}>
-        {isLoggedIn &&
-          <Link to='/complete'>
-            <h3><BsExclamationTriangle /></h3>
-          </Link>
-        }
-      </div>
+      
     </header>
   )
 }

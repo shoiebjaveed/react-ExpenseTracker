@@ -38,10 +38,18 @@
   outline: none;
 }
 
+.login form h5 {
+  position: absolute;
+  right: 40%;
+  color: red;
+  margin-top: 1px;
+  cursor: help;
+}
+
 .login form button {
   width: 320px;
   height: 35px;
-  margin-top: 20px;
+  margin-top: 25px;
   border: none;
   cursor: pointer;
   background-color: #077732;
