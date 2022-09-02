@@ -1,26 +1,27 @@
-import { useContext, useRef } from 'react';
-import ExpenseContext from '../../../store/expense-context';
+import { useRef } from 'react';
 import classes from './AddExpense.module.css';
-import ExpenseList from './ExpenseList';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addExpense } from '../../../store/expenseSlice';
 
 const AddExpense = () => {
-    const expenseCtx = useContext(ExpenseContext)
+    const dispatch = useDispatch()
+    const history = useNavigate();
     const amountRef = useRef();
     const descriptionRef = useRef();
     const categoryRef = useRef();
 
+
     const submitHandler = (event) => {
-        event.preventDefault()
-        const expense = {
-            amount: amountRef.current.value,
+        event.preventDefault();
+        dispatch(addExpense({
+            id: Math.random(),
+            category: categoryRef.current.value,
             description: descriptionRef.current.value,
-            category: categoryRef.current.value
-        }
-        expenseCtx.getData(expense);
+            amount: amountRef.current.value
+        }))
+        history('/');   
     }
-
-    
-
 
     return (
         <>
@@ -41,9 +42,9 @@ const AddExpense = () => {
                     <button type='submit'>New Expense</button>
                 </form>
             </div>
-            <div className={classes.expenseList}>
-                <ExpenseList />
-            </div>
+            {/* <div className={classes.expenseList}>
+            <ExpenseList />
+            </div> */}
         </>
     )
 }

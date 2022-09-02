@@ -44,7 +44,8 @@ const Login = () => {
         }
       }).then(data => {
         console.log(data)
-        authCtx.login(data.idToken, data.email, data.displayName, data.profilePicture);
+        authCtx.login(data.idToken);
+        authCtx.userdata(data.email, data.displayName, data.profilePicture)
         history('/');
 
       })/*if sucessfull connection*/

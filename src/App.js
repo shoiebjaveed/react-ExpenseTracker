@@ -5,12 +5,12 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Signup from './pages/signup/Signup';
 import CompleteProfile from "./components/Layout/user/CompleteProfile";
-import { ExpenseContextProvider } from "./store/expense-context";
+import AddExpense from "./components/Layout/expenses/AddExpense";
+import EditExpense from "./components/Layout/expenses/EditExpense"
 
 function App() {
 
   return (
-    <ExpenseContextProvider>
       <BrowserRouter>
     <Header />
     <Routes>
@@ -19,9 +19,10 @@ function App() {
       <Route path='/signup' element={<Signup />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/complete' element={<CompleteProfile />} />
+      <Route path='/add-expense' element={<AddExpense />} />
+      <Route path='/edit-expense/:id' element={<EditExpense />} />
     </Routes>
     </BrowserRouter>
-    </ExpenseContextProvider>    
   );
 }
 

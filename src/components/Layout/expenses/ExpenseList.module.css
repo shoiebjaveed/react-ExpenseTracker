@@ -1,14 +1,32 @@
-
-.list form input {
-    font: inherit;
-    padding:5px 0.9rem;
+.list {
+    justify-items: center;
+    justify-content: space-around;
+    background-color: wheat;
     border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 20rem;
-    max-width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);  
 }
 
-.list button {
+.list h2 {
+    font-size: 30px;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);  
+}
 
-    margin-top: 60%;
+.list p {
+    font-size: 18px; 
+
+}
+
+.list h5 {
+    font-size: 15px;
+    margin-bottom: 0%;
+}
+
+.list div button {
+    margin: 1%;
+    width: 40px; 
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    background-color: #077732;
 }

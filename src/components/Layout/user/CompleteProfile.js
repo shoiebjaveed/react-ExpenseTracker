@@ -60,7 +60,7 @@ const CompleteProfile = () => {
                 <h3>complete your profile</h3>
                 <form onSubmit={submitHandler}>
                     <label>username</label>
-                    <input type='text' placeholder='User Name' required ref={username} />
+                    <input type='text' placeholder='User Name' ref={username} />
                     <label>Image URL</label>
                     <input type='url' placeholder='URL' required ref={imageurl} />
                     <button type='submit'>
