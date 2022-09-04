@@ -9,7 +9,7 @@ const Expenses = () => {
     let sum = 0;
     if(expenses.length > 0){
         const getsum = expenses.map(datum => datum.amount)
-        sum =  getsum.reduce((result,number)=> result+number);
+        sum =  getsum.reduce((result,number) => { return result+number});
        
     }
 

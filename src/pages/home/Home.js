@@ -7,7 +7,6 @@ import classes from './Home.module.css';
 const Home = () => {
     const authCtx = useContext(AuthContext);
     const isLoggedIn = authCtx.isLoggedIn;
-    console.log(authCtx)
 
     return (
         <>
