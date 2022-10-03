@@ -6,7 +6,7 @@
     left: 0;
     width: 100%;
     height: 4rem;
-    background-color: #077732;
+    background-color: #48A411;
     color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
@@ -96,9 +96,9 @@
   left: -1%;
 }
 
-.theme button {
+.theme h3 {
   font-size: 25px;  
-  color: green; 
+  color: black; 
   cursor: pointer; 
 }
 

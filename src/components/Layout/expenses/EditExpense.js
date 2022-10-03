@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import classes from './AddExpense.module.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { editExpense } from '../../../store/expenseSlice';
+import { expenseAction } from '../../../store/expenseSlice';
 
 
 const EditExpense = () => {
@@ -13,17 +13,17 @@ const EditExpense = () => {
     const amountRef = useRef();
     const descriptionRef = useRef();
     const categoryRef = useRef();
-    
+
 
 
     const submitHandler = (event) => {
         event.preventDefault();
-            dispatch(editExpense({
-                id: params.id,
-                category: categoryRef.current.value,
-                description: descriptionRef.current.value,
-                amount: amountRef.current.value
-            }))
+        dispatch(expenseAction.editExpense({
+            id: params.id,
+            category: categoryRef.current.value,
+            description: descriptionRef.current.value,
+            amount: amountRef.current.value
+        }))
         history('/');
     }
 
@@ -46,7 +46,7 @@ const EditExpense = () => {
                     <button onClick={submitHandler}>Update Expense</button>
                 </form>
             </div>
-            
+
         </>
     )
 }

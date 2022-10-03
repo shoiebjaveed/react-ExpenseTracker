@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import classes from './AddExpense.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addExpense } from '../../../store/expenseSlice';
+import { expenseAction } from '../../../store/expenseSlice';
 
 const AddExpense = () => {
     const dispatch = useDispatch()
@@ -14,7 +14,7 @@ const AddExpense = () => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        dispatch(addExpense({
+        dispatch(expenseAction.addExpense({
             id: Math.random(),
             category: categoryRef.current.value,
             description: descriptionRef.current.value,

@@ -11,7 +11,10 @@ const Home = () => {
     return (
         <>
         <section className={classes.starting}>
+            <div className={classes.intro}>
             <h1>Welcome to Expense Tracker</h1>
+            <p>manage your all expense in one place!</p>
+            </div>
             {!isLoggedIn && (<Link to='/login'><button>Login</button></Link>)}
             {!isLoggedIn &&(<Link to='/signup'><button>signup</button></Link>)}
             {isLoggedIn && <Expenses />}

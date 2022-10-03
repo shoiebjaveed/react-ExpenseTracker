@@ -3,22 +3,26 @@ import { Link } from "react-router-dom";
 import classes from './Expenses.module.css'
 import { useSelector } from "react-redux";
 
-
-const Expenses = () => {
-    const expenses = useSelector(store => store.expenses)
-    let sum = 0;
-    if(expenses.length > 0){
-        const getsum = expenses.map(datum => datum.amount)
-        sum =  getsum.reduce((result,number) => { return result+number});
-       
-    }
+const Expenses = (props) => {
+    const expenses = useSelector(state => state.expenses.expenseList)
+    const totalAmount = useSelector(state => state.expenses.totalAmount)
+    console.log(expenses)
 
     return(
         <>
         <div className={classes.expenses}>
-            <h2>Total amount spend: ${sum}</h2>
+            <h2>Total amount spend: ${totalAmount}</h2>
         <Link to='/add-expense'><button>AddExpense</button></Link>
-        <ExpenseList />
+        <ul>
+        {expenses.map((item) => (
+            <ExpenseList 
+            key={item.id}
+            id={item.id}
+            category={item.category}
+            amount={item.amount}
+            description={item.description} />
+        ))}
+        </ul>
         </div>
         </>
     )

@@ -4,9 +4,9 @@ import { BsPersonLinesFill } from "react-icons/bs";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useContext } from 'react';
 import AuthContext from '../../store/auth-context';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { themeAction } from '../../store/themeSlice';
-import { WiMoonAltWaningCrescent4 } from "react-icons/wi";
+import { BsFillSunFill } from "react-icons/bs";
 
 
 const Header = (props) => {
@@ -14,11 +14,12 @@ const Header = (props) => {
   const isLoggedIn = authCtx.isLoggedIn;
   const history = useNavigate()
   const dispatch = useDispatch();
+  const totalAmount = useSelector(state => state.expenses.totalAmount)
 
+  
   const toggleThemeHandler = () => {
     dispatch(themeAction.toggleTheme())
   }
-
 
 
   const logoutHandler = () => {
@@ -31,9 +32,9 @@ const Header = (props) => {
       <div className={classes.logout}>
         {isLoggedIn && <h3 onClick={logoutHandler}><AiOutlineLogout /></h3>}
       </div>
-      <div className={classes.theme}>
-        <button onClick={toggleThemeHandler}><WiMoonAltWaningCrescent4 /></button>
-      </div>
+      {totalAmount >= 1000 && <div className={classes.theme}>
+        {isLoggedIn && <h3 onClick={toggleThemeHandler}><BsFillSunFill /></h3>}
+      </div>}
       <div className={classes.title}>
         <Link to='/'>
           <h3>Expense Tracker</h3>
